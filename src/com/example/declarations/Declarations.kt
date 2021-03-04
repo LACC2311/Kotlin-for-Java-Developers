@@ -1,5 +1,10 @@
 package com.example.declarations
 
+import java.lang.StringBuilder
+
+/*Assign an alias to an existing data type */
+typealias EmployeeSet = Set<Employee>
+
 fun main(args: Array<String>) {
     /*
     The compiler infer the data type but it can't be changed on the fly
@@ -28,6 +33,9 @@ fun main(args: Array<String>) {
     } else {
         employee2 = Employee("Mike Watson", 150)
     }
+
+    /*to use alias outside this file, you have to import it*/
+    val employee: EmployeeSet
 
 }
 
