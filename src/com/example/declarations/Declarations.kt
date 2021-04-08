@@ -83,6 +83,18 @@ fun main(args: Array<String>) {
         println(something.name)
     }
 
+    println("================= String templates =================")
+    println(employee1)
+
+    val change = 4.22
+    println("To show the value of change, we use \$change")
+    println("Your change is $$change")
+
+    val numerator = 10.99
+    val denominator = 20.00
+    println("The value of $numerator divided by $denominator is ${numerator/denominator}")
+
+    println("The employee's id is ${employee1.id}")
 }
 
 class Employee(var name: String, val id: Int) {
@@ -93,5 +105,11 @@ class Employee(var name: String, val id: Int) {
         }
         return false
     }
+
+    override fun toString(): String {
+        /*Kotlin use $ to print the value of a variable within a string*/
+        return "Employee(name=$name, id=$id)"
+    }
+
 
 }
