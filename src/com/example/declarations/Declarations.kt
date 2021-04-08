@@ -34,7 +34,7 @@ fun main(args: Array<String>) {
         employee2 = Employee("Mike Watson", 150)
     }
 
-    /*to use alias outside this file, you have to import it*/
+    /*to use alias outside this file, we have to import it*/
     val employee: EmployeeSet
 
     println("================= Equality in Kotlin =================")
@@ -61,6 +61,28 @@ fun main(args: Array<String>) {
     println(employeeFour !== employeeTwo)
     println(employeeTwo != employeeThree)
     println(employeeTwo !== employeeThree)
+
+    println("================= Bit Operators and Smart Casting =================")
+    val x = 0x00101101
+    val y = 0x11011011
+    /*Operators | & don't exist in kotlin*/
+    //x | y
+    //x & y
+    /*we use or and instead*/
+    x or y
+    x and y
+
+    /*Any can hold any kotlin object*/
+    val something: Any = employeeFour
+    /*we use operator is instead instanceof*/
+    if(something is Employee){
+        /*Kotlin use as operator to cast, in this case cast is no needed because Smart casting*/
+        val newEmployee = something as Employee
+        println(newEmployee.name)
+        /*we can use directly something.name because the compiler is doing the casting for us*/
+        println(something.name)
+    }
+
 }
 
 class Employee(var name: String, val id: Int) {
