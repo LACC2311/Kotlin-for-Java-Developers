@@ -95,6 +95,20 @@ fun main(args: Array<String>) {
     println("The value of $numerator divided by $denominator is ${numerator/denominator}")
 
     println("The employee's id is ${employee1.id}")
+
+    println("================= Raw strings or triple quoted strings =================")
+    /*When we use triple quoted strings we don't have to scape characters*/
+    val filePath = """C:\somedir1\somedir2"""
+
+    /*We can use string templates within triple quoted strings*/
+    val eggName = "Humpty"
+    /*We can define a trim character or use de default character*/
+    val nurseryRhyme =
+        """$eggName Dumpty sat on the wall 
+        |$eggName Dumpty had a great fall
+        |All the king's horses and all the king's men
+        |Couldn't put $eggName together again.""".trimMargin()
+    println(nurseryRhyme)
 }
 
 class Employee(var name: String, val id: Int) {
