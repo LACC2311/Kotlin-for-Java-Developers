@@ -37,8 +37,39 @@ fun main(args: Array<String>) {
     /*to use alias outside this file, you have to import it*/
     val employee: EmployeeSet
 
+    println("================= Equality in Kotlin =================")
+    val employeeOne = Employee("Mary", 1)
+    val employeeTwo = Employee("John", 2)
+    val employeeThree = Employee("John", 2)
+
+    println("====== Structural equality ======")
+    /*the use of double equality is equivalent to calling .equals function*/
+    println(employeeOne == employeeTwo)
+    println(employeeTwo == employeeThree)
+    //println(employeeOne.equals(employeeTwo))
+    //println(employeeTwo.equals(employeeThree))
+
+    println("====== Referential equality ======")
+    /*kotlin use triple equality to check referential equality*/
+    println(employeeOne === employeeTwo)
+    println(employeeTwo === employeeThree)
+    val employeeFour = employeeTwo
+    println(employeeFour === employeeTwo)
+
+    println("====== Not equals ======")
+    println(employeeFour != employeeTwo)
+    println(employeeFour !== employeeTwo)
+    println(employeeTwo != employeeThree)
+    println(employeeTwo !== employeeThree)
 }
 
 class Employee(var name: String, val id: Int) {
+
+    override fun equals(obj: Any?): Boolean {
+        if(obj is Employee){
+            return name == obj.name && id == obj.id
+        }
+        return false
+    }
 
 }
